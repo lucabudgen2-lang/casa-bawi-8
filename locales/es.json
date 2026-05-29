@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "gallery": "Galería",
+    "amenities": "Comodidades",
+    "location": "Ubicación",
+    "book": "Reservar"
+  },
+  "hero": {
+    "subtitle": "Puerto Escondido, Oaxaca",
+    "title": "Casa Bawi",
+    "tagline": "A pasos del mar",
+    "cta": "Reservar por WhatsApp"
+  },
+  "about": {
+    "label": "Sobre el lugar",
+    "title": "Tu refugio frente al océano",
+    "text": "Casa Bawi es un departamento moderno y luminoso ubicado a pasos de la playa en Puerto Escondido, Oaxaca. Con espacio para hasta 6 huéspedes, dos recámaras con aire acondicionado, cocina completa y una terraza con vista al océano, es el lugar perfecto para desconectar, surfear y disfrutar la costa oaxaqueña. Ideal para parejas, familias, surfistas y nómadas digitales que buscan comodidad, tranquilidad y el sonido del mar.",
+    "highlight_1_title": "Frente al mar",
+    "highlight_1_text": "A pasos de la playa, con la tranquilidad del océano como tu vecino.",
+    "highlight_2_title": "Confort total",
+    "highlight_2_text": "Cocina completa, aire acondicionado, Starlink WiFi y todo lo que necesitas.",
+    "highlight_3_title": "Seguridad",
+    "highlight_3_text": "Edificio seguro con elevador, en una zona tranquila y residencial."
+  },
+  "gallery": {
+    "label": "Galería",
+    "title": "Conoce el espacio"
+  },
+  "amenities": {
+    "label": "Comodidades",
+    "title": "Todo lo que necesitas",
+    "bedrooms": "2 Recámaras",
+    "bathrooms": "2 Baños completos",
+    "kitchen": "Cocina completa",
+    "ac": "Aire acondicionado",
+    "wifi": "Starlink WiFi",
+    "ocean": "Vista al océano",
+    "laundry": "Lavadora",
+    "elevator": "Elevador"
+  },
+  "details": {
+    "label": "Detalles",
+    "title": "Información importante",
+    "col_space": "El espacio",
+    "col_booking": "Reservación",
+    "capacity_label": "Capacidad",
+    "capacity_value": "Hasta 6 huéspedes",
+    "bedroom1_label": "Recámara 1",
+    "bedroom1_value": "Cama King",
+    "bedroom2_label": "Recámara 2",
+    "bedroom2_value": "2 camas individuales",
+    "pets_label": "Mascotas",
+    "pets_value": "Solo entrenadas",
+    "minstay_label": "Estancia mínima",
+    "minstay_value": "3 noches",
+    "checkin_label": "Check-in",
+    "checkin_value": "12:00 PM",
+    "checkout_label": "Check-out",
+    "checkout_value": "1:00 PM",
+    "deposit_label": "Depósito",
+    "deposit_value": "Requerido",
+    "payment_label": "Pago",
+    "payment_value": "Transferencia / Efectivo"
+  },
+  "location": {
+    "label": "Ubicación",
+    "title": "Dónde encontrarnos",
+    "text": "Casa Bawi se encuentra en la Colonia Tamarindos de Puerto Escondido, Oaxaca — una de las zonas más tranquilas y seguras de la ciudad. A pocos pasos de la playa, disfrutarás del sonido de las olas desde tu terraza. La ubicación es perfecta para explorar las playas cercanas, restaurantes locales y las mejores olas para surfear.",
+    "address_line1": "Calle Fresnos y Nogales, Col. Tamarindos",
+    "address_line2": "Puerto Escondido, Oaxaca 70934"
+  },
+  "booking": {
+    "label": "Reservar",
+    "title": "Reserva tu estancia",
+    "text": "¿Listo para disfrutar del paraíso? Envíanos un mensaje por WhatsApp para verificar disponibilidad y reservar directamente. Respuesta rápida y atención personalizada.",
+    "cta": "Reservar por WhatsApp",
+    "divider": "— o envíanos un mensaje —",
+    "form_name": "Tu nombre",
+    "form_email": "Tu email",
+    "form_message": "Fechas, número de huéspedes, preguntas...",
+    "form_submit": "Enviar mensaje",
+    "whatsapp_message": "Hola, me interesa reservar el departamento Casa Bawi en Puerto Escondido. ¿Podrían darme más información?"
+  },
+  "footer": {
+    "copy": "© 2026 Casa Bawi — Puerto Escondido, Oaxaca"
+  }
+}
