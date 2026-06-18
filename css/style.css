@@ -432,36 +432,75 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
    MODAL / LEAD-CAPTURE POPUP
    ============================================================ */
 .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center;
-  padding: clamp(0.75rem, 3vw, 2rem); background: rgba(8,7,6,0.6); opacity: 0; visibility: hidden;
-  transition: opacity 0.35s var(--ease), visibility 0.35s var(--ease); }
+  padding: clamp(0.75rem, 3vw, 2rem); background: rgba(8,7,6,0.66); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  opacity: 0; visibility: hidden; transition: opacity 0.4s var(--ease), visibility 0.4s var(--ease); }
 .modal.active { opacity: 1; visibility: visible; }
-.modal__dialog { position: relative; width: 100%; max-width: 1060px; max-height: 94vh; overflow-y: auto; overflow-x: hidden;
-  background: var(--color-white); border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr;
-  box-shadow: 0 30px 90px rgba(8,7,6,0.45); transform: translateY(18px) scale(0.985);
-  transition: transform 0.45s var(--ease); }
-.modal.active .modal__dialog { transform: none; }
-.modal__close { position: absolute; top: 0.9rem; right: 1rem; z-index: 3; width: 42px; height: 42px;
+.modal__dialog { --seam: clamp(38px, 5vw, 78px); position: relative; width: 100%; max-width: 1060px; max-height: 94vh;
+  overflow-y: auto; overflow-x: hidden; background: var(--color-white); border-radius: 14px;
+  display: grid; grid-template-columns: 1.02fr 0.98fr;
+  box-shadow: 0 30px 90px rgba(8,7,6,0.5), 0 0 0 1px rgba(255,255,255,0.04), 0 0 70px rgba(184,95,77,0.22);
+  transform: translateY(26px) scale(0.97); opacity: 0; transition: transform 0.55s var(--ease), opacity 0.45s var(--ease); }
+.modal.active .modal__dialog { transform: none; opacity: 1; animation: modalGlow 5.5s var(--ease) 0.5s infinite; }
+.modal__close { position: absolute; top: 0.9rem; right: 1rem; z-index: 4; width: 42px; height: 42px;
   display: flex; align-items: center; justify-content: center; font-size: 1.7rem; line-height: 1;
-  color: var(--color-salmon-dark); border-radius: 50%; transition: var(--t); }
-.modal__close:hover { background: var(--color-cream); }
+  color: var(--color-white); background: rgba(8,7,6,0.32); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border-radius: 50%; transition: var(--t); }
+.modal__close:hover { background: var(--color-salmon-dark); transform: rotate(90deg); }
 
 .modal__left, .modal__right { min-width: 0; }
-.modal__left { padding: clamp(1.6rem, 3vw, 2.8rem); background: var(--color-cream); display: flex; flex-direction: column; }
+
+/* ---- Left: photo panel with diagonal divider + glow ---- */
+.modal__left { position: relative; z-index: 1; display: flex; flex-direction: column;
+  padding: clamp(1.7rem, 3vw, 2.9rem); padding-right: calc(var(--seam) + clamp(0.5rem, 1vw, 1.2rem));
+  color: var(--color-white); overflow: visible; }
+.modal__left::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: calc(-1 * var(--seam)); z-index: -1;
+  background:
+    linear-gradient(125deg, rgba(10,8,6,0.9) 0%, rgba(12,9,7,0.62) 48%, rgba(34,18,12,0.42) 100%),
+    radial-gradient(135% 95% at 12% 100%, rgba(184,95,77,0.55) 0%, rgba(184,95,77,0) 55%),
+    url('../photos/webp/DSC02115.webp') center/cover no-repeat;
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--seam)) 100%, 0 100%);
+  filter: drop-shadow(6px 0 20px rgba(232,150,110,0.55)) drop-shadow(2px 0 4px rgba(255,190,150,0.7));
+  transform-origin: 30% 50%; }
 .modal__logo { margin-top: auto; padding-top: 1.8rem; }
-.modal__logo img { width: min(260px, 72%); height: auto; opacity: 0.95; }
-.modal__left h2 { font-size: clamp(1.35rem, 2.1vw, 1.95rem); color: var(--color-salmon-dark); line-height: 1.05; }
-.modal__features { display: grid; gap: 1.05rem; margin: 1.6rem 0; }
+.modal__logo img { width: min(260px, 72%); height: auto; }
+.modal__left h2 { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.01em;
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem); color: var(--color-white); line-height: 1.06;
+  text-shadow: 0 2px 24px rgba(8,7,6,0.5); }
+.modal__features { display: grid; gap: 1.05rem; margin: 1.5rem 0; }
 .modal__feature { display: flex; gap: 0.85rem; align-items: flex-start; }
-.modal__feature svg { width: 22px; height: 22px; color: var(--color-salmon); flex-shrink: 0; margin-top: 2px; }
-.modal__feature span { font-size: 0.97rem; line-height: 1.45; color: var(--ink); }
+.modal__feature svg { width: 22px; height: 22px; color: var(--color-salmon-light, #E8A07A); flex-shrink: 0; margin-top: 2px;
+  filter: drop-shadow(0 0 8px rgba(232,160,122,0.5)); }
+.modal__feature span { font-size: 0.97rem; line-height: 1.45; color: rgba(255,255,255,0.92); }
 .modal__wa { width: 100%; white-space: normal; line-height: 1.35; letter-spacing: 0.08em; text-align: center; padding-inline: 1rem; }
 .modal__trust { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center;
-  padding-top: 1.3rem; border-top: 1px solid var(--line); }
+  padding-top: 1.3rem; border-top: 1px solid rgba(255,255,255,0.18); }
 .modal__trust .chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem;
-  letter-spacing: 0.04em; color: var(--ink-soft); }
-.modal__trust .chip svg { width: 15px; height: 15px; color: var(--color-salmon); }
+  letter-spacing: 0.04em; color: rgba(255,255,255,0.82); }
+.modal__trust .chip svg { width: 15px; height: 15px; color: var(--color-salmon-light, #E8A07A); }
 
-.modal__right { padding: clamp(1.6rem, 3vw, 2.8rem); }
+/* ---- Right: form panel ---- */
+.modal__right { background: var(--color-white); position: relative; z-index: 0;
+  padding: clamp(1.7rem, 3vw, 2.9rem); padding-left: calc(var(--seam) + clamp(0.9rem, 1.6vw, 1.8rem)); }
+
+/* ---- Staggered intro reveal ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .modal__left > *, .modal__right > * { opacity: 0; transform: translateY(16px); }
+  .modal.active .modal__left > *, .modal.active .modal__right > * { animation: modalUp 0.6s var(--ease) forwards; }
+  .modal.active .modal__left::before { animation: modalKenBurns 7s var(--ease) forwards; }
+  .modal.active .modal__left > *:nth-child(1) { animation-delay: 0.18s; }
+  .modal.active .modal__left > *:nth-child(2) { animation-delay: 0.26s; }
+  .modal.active .modal__left > *:nth-child(3) { animation-delay: 0.34s; }
+  .modal.active .modal__left > *:nth-child(4) { animation-delay: 0.42s; }
+  .modal.active .modal__left > *:nth-child(5) { animation-delay: 0.50s; }
+  .modal.active .modal__right > *:nth-child(1) { animation-delay: 0.30s; }
+  .modal.active .modal__right > *:nth-child(2) { animation-delay: 0.38s; }
+  .modal.active .modal__right > *:nth-child(3) { animation-delay: 0.46s; }
+}
+@keyframes modalUp { to { opacity: 1; transform: none; } }
+@keyframes modalKenBurns { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes modalGlow {
+  0%, 100% { box-shadow: 0 30px 90px rgba(8,7,6,0.5), 0 0 0 1px rgba(255,255,255,0.04), 0 0 60px rgba(184,95,77,0.2); }
+  50% { box-shadow: 0 30px 90px rgba(8,7,6,0.5), 0 0 0 1px rgba(255,255,255,0.04), 0 0 95px rgba(184,95,77,0.4); } }
 .modal__right h2 { font-size: clamp(1.6rem, 2.6vw, 2.4rem); color: var(--color-black); line-height: 1.02; }
 .modal__right h2 .hl { color: var(--color-salmon-dark); }
 .modal__right .sub { color: var(--ink-soft); font-size: 0.92rem; margin: 0.5rem 0 1.3rem; }
@@ -517,8 +556,15 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
   .hero__sub { margin-top: 1.05rem; font-size: 1rem; line-height: 1.55; }
   .hero__cta { margin-top: 1.5rem; gap: 0.7rem; }
   .hero__trust { margin-top: 1.5rem; padding-top: 1.25rem; font-size: 0.74rem; }
-  .modal__dialog { grid-template-columns: 1fr; max-height: 92vh; }
-  .modal__left { order: 2; }
+  .modal__dialog { --seam: 0px; grid-template-columns: 1fr; max-height: 92vh; }
+  .modal__left { order: 1; padding: clamp(1.7rem, 6vw, 2.4rem); min-height: 44vh; justify-content: flex-end; }
+  .modal__left::before { right: 0; clip-path: none; filter: none;
+    background:
+      linear-gradient(180deg, rgba(10,8,6,0.45) 0%, rgba(10,8,6,0.55) 55%, rgba(20,12,9,0.85) 100%),
+      radial-gradient(120% 80% at 50% 100%, rgba(184,95,77,0.45) 0%, rgba(184,95,77,0) 60%),
+      url('../photos/webp/DSC02115.webp') center/cover no-repeat; }
+  .modal__right { order: 2; padding-left: clamp(1.6rem, 6vw, 2.4rem); }
+  .modal__features { margin: 1.2rem 0; }
 }
 
 @media (max-width: 460px) {
