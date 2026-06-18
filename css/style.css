@@ -493,7 +493,7 @@ p { max-width: 62ch; }
   .burger { display: flex; }
   .header { background: rgba(8,7,6,0.55); }
   .header.scrolled { background: var(--color-cream); }
-  .sticky-cta { display: block; }
+  .sticky-cta { display: none; }
   .wa-float { display: none; }
 }
 
