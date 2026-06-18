@@ -439,7 +439,7 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
   overflow-y: auto; overflow-x: hidden; background: var(--color-white); border-radius: 14px;
   display: grid; grid-template-columns: 1.02fr 0.98fr;
   box-shadow: 0 30px 90px rgba(8,7,6,0.5), 0 0 0 1px rgba(255,255,255,0.04), 0 0 70px rgba(184,95,77,0.22);
-  transform: translateY(26px) scale(0.97); opacity: 0; transition: transform 0.55s var(--ease), opacity 0.45s var(--ease); }
+  transform: translateY(20px) scale(0.975); opacity: 0; transition: transform 0.34s var(--ease), opacity 0.28s var(--ease); }
 .modal.active .modal__dialog { transform: none; opacity: 1; animation: modalGlow 5.5s var(--ease) 0.5s infinite; }
 .modal__close { position: absolute; top: 0.9rem; right: 1rem; z-index: 4; width: 42px; height: 42px;
   display: flex; align-items: center; justify-content: center; font-size: 1.7rem; line-height: 1;
@@ -485,16 +485,16 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
 /* ---- Staggered intro reveal ---- */
 @media (prefers-reduced-motion: no-preference) {
   .modal__left > *, .modal__right > * { opacity: 0; transform: translateY(16px); }
-  .modal.active .modal__left > *, .modal.active .modal__right > * { animation: modalUp 0.6s var(--ease) forwards; }
-  .modal.active .modal__left::before { animation: modalKenBurns 7s var(--ease) forwards; }
-  .modal.active .modal__left > *:nth-child(1) { animation-delay: 0.18s; }
-  .modal.active .modal__left > *:nth-child(2) { animation-delay: 0.26s; }
-  .modal.active .modal__left > *:nth-child(3) { animation-delay: 0.34s; }
-  .modal.active .modal__left > *:nth-child(4) { animation-delay: 0.42s; }
-  .modal.active .modal__left > *:nth-child(5) { animation-delay: 0.50s; }
-  .modal.active .modal__right > *:nth-child(1) { animation-delay: 0.30s; }
-  .modal.active .modal__right > *:nth-child(2) { animation-delay: 0.38s; }
-  .modal.active .modal__right > *:nth-child(3) { animation-delay: 0.46s; }
+  .modal.active .modal__left > *, .modal.active .modal__right > * { animation: modalUp 0.38s var(--ease) forwards; }
+  .modal.active .modal__left::before { animation: modalKenBurns 4s var(--ease) forwards; }
+  .modal.active .modal__left > *:nth-child(1) { animation-delay: 0.08s; }
+  .modal.active .modal__left > *:nth-child(2) { animation-delay: 0.13s; }
+  .modal.active .modal__left > *:nth-child(3) { animation-delay: 0.18s; }
+  .modal.active .modal__left > *:nth-child(4) { animation-delay: 0.23s; }
+  .modal.active .modal__left > *:nth-child(5) { animation-delay: 0.28s; }
+  .modal.active .modal__right > *:nth-child(1) { animation-delay: 0.14s; }
+  .modal.active .modal__right > *:nth-child(2) { animation-delay: 0.19s; }
+  .modal.active .modal__right > *:nth-child(3) { animation-delay: 0.24s; }
 }
 @keyframes modalUp { to { opacity: 1; transform: none; } }
 @keyframes modalKenBurns { from { transform: scale(1.12); } to { transform: scale(1); } }
