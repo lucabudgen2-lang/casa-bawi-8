@@ -1,405 +1,636 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <title>Casa Bawi — Puerto Escondido, Oaxaca</title>
-  <meta name="description" content="Departamento frente al mar en Puerto Escondido, Oaxaca. 2 recámaras, terraza con vista al océano, cocina completa. A pasos de la playa.">
-  <meta name="keywords" content="Puerto Escondido, Oaxaca, departamento, renta vacacional, playa, Casa Bawi, Tamarindos">
+  <title>Casa Ba'wi Apartemento 8 | Luxury Beach Apartment in Puerto Escondido</title>
+  <meta name="description" content="Stay at Casa Ba'wi Apartemento 8, a luxury two-bedroom beach apartment in Tamarindos, Puerto Escondido with ocean views, private balconies, AC, full kitchen, and WhatsApp booking.">
+
+  <!-- Canonical + hreflang (siteUrl mirrors js/config.js — update both when the custom domain is connected) -->
+  <link rel="canonical" href="https://casa-bawi.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://casa-bawi.vercel.app/">
+  <link rel="alternate" hreflang="es-MX" href="https://casa-bawi.vercel.app/es">
+  <link rel="alternate" hreflang="x-default" href="https://casa-bawi.vercel.app/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Casa Bawi — Puerto Escondido">
-  <meta property="og:description" content="Departamento frente al mar con terraza, vista al océano y cocina completa.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casa Ba'wi Apartemento 8">
+  <meta property="og:title" content="Casa Ba'wi Apartemento 8 | Luxury Beach Apartment in Puerto Escondido">
+  <meta property="og:description" content="A luxury two-bedroom beach apartment in Tamarindos, Puerto Escondido — ocean views, private balconies, AC, and a full kitchen. Seconds from Tamarindo Beach.">
+  <meta property="og:url" content="https://casa-bawi.vercel.app/">
+  <meta property="og:image" content="https://casa-bawi.vercel.app/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_MX">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Casa Ba'wi Apartemento 8 | Luxury Beach Apartment in Puerto Escondido">
+  <meta name="twitter:description" content="A luxury two-bedroom beach apartment in Tamarindos, Puerto Escondido — ocean views, private balconies, and a full kitchen.">
+  <meta name="twitter:image" content="https://casa-bawi.vercel.app/og-image.jpg">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#080706">
+
+  <!-- Preconnect fonts + preload hero -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="photos/webp/DSC02287.webp">
+
+  <link rel="stylesheet" href="css/style.css?v=16">
+
+  <!-- ===== Structured data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Casa Ba'wi Apartemento 8",
+    "url": "https://casa-bawi.vercel.app/",
+    "inLanguage": ["en", "es-MX"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Casa Ba'wi Apartemento 8 | Luxury Beach Apartment in Puerto Escondido",
+    "url": "https://casa-bawi.vercel.app/",
+    "inLanguage": "en",
+    "description": "A luxury two-bedroom beach apartment in Tamarindos, Puerto Escondido with ocean views, private balconies, AC, and a full kitchen."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://casa-bawi.vercel.app/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Casa Ba'wi Apartemento 8",
+    "description": "Luxury two-bedroom beach apartment in Tamarindos, Puerto Escondido, Oaxaca — ocean views, private balconies, air-conditioned bedrooms, and a full kitchen, seconds from Tamarindo Beach.",
+    "url": "https://casa-bawi.vercel.app/",
+    "image": "https://casa-bawi.vercel.app/og-image.jpg",
+    "telephone": "+529581075503",
+    "petsAllowed": true,
+    "smokingAllowed": false,
+    "numberOfRooms": 2,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puerto Escondido",
+      "addressRegion": "Oaxaca",
+      "addressCountry": "MX"
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Full kitchen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Ocean-view balcony", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Washing machine", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pet friendly", "value": true }
+    ]
+  }
+  </script>
+  <!-- TODO: VacationRental rich-result schema is ready to activate once the Google Maps pin is added.
+       Add latitude/longitude (and address) to js/config.js, then un-comment and fill the block below.
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VacationRental",
+    "name": "Casa Ba'wi Apartemento 8",
+    "identifier": "casa-bawi-apartemento-8",
+    "image": "https://casa-bawi.vercel.app/og-image.jpg",
+    "latitude": 0.0,            // TODO from Google Maps pin
+    "longitude": 0.0,           // TODO from Google Maps pin
+    "numberOfBedrooms": 2,
+    "numberOfBathroomsTotal": 2,
+    "occupancy": { "@type": "QuantitativeValue", "value": 4 },
+    "containsPlace": {
+      "@type": "Accommodation",
+      "additionalType": "EntirePlace",
+      "bed": [
+        { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
+        { "@type": "BedDetails", "typeOfBed": "Single", "numberOfBeds": 2 }
+      ],
+      "occupancy": { "@type": "QuantitativeValue", "value": 4 },
+      "floorSize": { "@type": "QuantitativeValue", "unitCode": "MTK", "value": 0 }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puerto Escondido",
+      "addressRegion": "Oaxaca",
+      "addressCountry": "MX"
+    }
+  }
+  </script>
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How close is Casa Ba'wi to the beach?", "acceptedAnswer": { "@type": "Answer", "text": "Casa Ba'wi is around a 30 second walk from Tamarindo Beach." } },
+      { "@type": "Question", "name": "How many guests can stay?", "acceptedAnswer": { "@type": "Answer", "text": "The apartment is designed for up to 4 guests, with one king bedroom and one bedroom with two small single beds." } },
+      { "@type": "Question", "name": "Does the apartment have air conditioning?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, both bedrooms have air conditioning. There are also ceiling fans in the living area and bedrooms." } },
+      { "@type": "Question", "name": "Is there WiFi?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, WiFi is available throughout the apartment." } },
+      { "@type": "Question", "name": "Is there a kitchen?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Casa Ba'wi has a full kitchen with a water dispenser, coffee maker, microwave, pans, cutlery, blender, and juicer." } },
+      { "@type": "Question", "name": "Is there parking?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, free parking is available in front of the building." } },
+      { "@type": "Question", "name": "Is Casa Ba'wi pet-friendly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pets are allowed." } },
+      { "@type": "Question", "name": "Is smoking or partying allowed?", "acceptedAnswer": { "@type": "Answer", "text": "No, Casa Ba'wi is a no-smoking apartment and parties are not allowed." } },
+      { "@type": "Question", "name": "Is there a pool?", "acceptedAnswer": { "@type": "Answer", "text": "No, there is no pool. The beach is just around 30 seconds away." } },
+      { "@type": "Question", "name": "How do I check availability?", "acceptedAnswer": { "@type": "Answer", "text": "Send a WhatsApp message with your dates and number of guests, and we will confirm availability and current rates." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ============================================
-       NAVIGATION
-       ============================================ -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#hero" class="navbar__logo">Casa Bawi</a>
+  <!-- ===== Icon sprite ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-bed" viewBox="0 0 24 24"><path d="M3 18v-6h18v6M3 12V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 18v2M21 18v2M7 12V9h4v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-bath" viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3zM6 12V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2M6 19l-1 2M19 19l1 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-users" viewBox="0 0 24 24"><path d="M17 20v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 20v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-wave" viewBox="0 0 24 24"><path d="M2 8c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M2 14c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-ac" viewBox="0 0 24 24"><path d="M3 6h18v6H3zM6 16v1M10 16v2M14 16v1M18 16v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-kitchen" viewBox="0 0 24 24"><path d="M6 3v6a2 2 0 0 0 4 0V3M8 3v18M16 3c-1.5 0-2.5 2-2.5 5 0 2 1 3 2.5 3s2.5-1 2.5-3c0-3-1-5-2.5-5zM16 11v10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-car" viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13M5 13h14v4H5zM7 17v2M17 17v2M7 13.5h0M17 13.5h0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-paw" viewBox="0 0 24 24"><path d="M12 14c-2.5 0-4 1.7-4 3.3 0 1.2 1 1.7 2 1.7.8 0 1.2-.4 2-.4s1.2.4 2 .4c1 0 2-.5 2-1.7 0-1.6-1.5-3.3-4-3.3zM7 10a1.5 2 0 1 0 0 .01M17 10a1.5 2 0 1 0 0 .01M10 6a1.5 2 0 1 0 0 .01M14 6a1.5 2 0 1 0 0 .01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-roof" viewBox="0 0 24 24"><path d="M3 11l9-6 9 6M5 10v9h14v-9M9 19v-5h6v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="ic-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8.5 7.5c-.3 0-.7.1-.9.5-.3.4-.9 1-.9 2.3s1 2.7 1.1 2.9c.1.2 1.9 3 4.7 4.1 2.3.9 2.8.7 3.3.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.4-.3-.2-1.5-.8-1.8-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.3-.2-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5 0-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4z" fill="currentColor"/></symbol>
+    <symbol id="ic-wifi" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+    <symbol id="ic-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 10c0-4 1-6 3-6s2 4-1 6M14 12c4 0 6 1 6 3s-4 2-6-1M12 14c0 4-1 6-3 6s-2-4 1-6M10 12c-4 0-6-1-6-3s4-2 6 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-towel" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 3v18M9 7h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="ic-water" viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-coffee" viewBox="0 0 24 24"><path d="M4 9h13v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9zM17 10h2a2 2 0 0 1 0 4h-2M7 3c-.5 1 .5 2 0 3M11 3c-.5 1 .5 2 0 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-utensils" viewBox="0 0 24 24"><path d="M6 3v8M6 3a2 2 0 0 1 2 2v3a2 2 0 0 1-4 0V5a2 2 0 0 1 2-2zM6 11v10M17 3c-1.5 0-2.5 2-2.5 5 0 2 1 3 2.5 3s2.5-1 2.5-3c0-3-1-5-2.5-5zM17 11v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-blender" viewBox="0 0 24 24"><path d="M7 3h10l-1.5 10h-7L7 3zM9 17h6v3a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-3zM9 13h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-balcony" viewBox="0 0 24 24"><path d="M3 10h18M4 10v10M20 10v10M8 10v10M12 10v10M16 10v10M3 20h18M6 10V6a6 6 0 0 1 12 0v4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="ic-washer" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="13" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6h.01M10 6h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-child" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v7M8 10h8M12 14l-3 6M12 14l3 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.6 5.6l12.8 12.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </defs></svg>
 
-      <div class="navbar__links">
-        <a href="#about" data-i18n="nav.about"></a>
-        <a href="#gallery" data-i18n="nav.gallery"></a>
-        <a href="#amenities" data-i18n="nav.amenities"></a>
-        <a href="#location" data-i18n="nav.location"></a>
-        <a href="#booking" data-i18n="nav.book"></a>
-
-        <div class="lang-toggle">
-          <button class="lang-toggle__btn active" data-lang="es">ES</button>
-          <span class="lang-toggle__divider">|</span>
-          <button class="lang-toggle__btn" data-lang="en">EN</button>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="/" aria-label="Casa Ba'wi Apartemento 8 — home">
+        <img class="logo--white" src="photos/casabawilogowhite.png" alt="Casa Ba'wi Apartemento 8" width="180" height="38">
+        <img class="logo--black" src="photos/casabawilogoblack.png" alt="Casa Ba'wi Apartemento 8" width="180" height="38">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <div class="nav__links">
+          <a href="#apartment">Apartment</a>
+          <a href="#amenities">Amenities</a>
+          <a href="#location">Location</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </div>
-      </div>
-
-      <button class="burger" id="burger" aria-label="Menu">
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
-        <span class="burger__line"></span>
-      </button>
+        <div class="lang" aria-label="Language">
+          <a href="/" aria-current="true" hreflang="en">EN</a><span>/</span><a href="/es" hreflang="es-MX">ES</a>
+        </div>
+        <a class="btn btn--outline-light btn--cta" href="#contact" data-modal-open>Check Availability</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- Mobile Nav Overlay -->
+  <!-- ===== Mobile nav ===== -->
   <div class="mobile-nav" id="mobile-nav">
-    <a href="#about" data-i18n="nav.about"></a>
-    <a href="#gallery" data-i18n="nav.gallery"></a>
-    <a href="#amenities" data-i18n="nav.amenities"></a>
-    <a href="#location" data-i18n="nav.location"></a>
-    <a href="#booking" data-i18n="nav.book"></a>
-
-    <div class="lang-toggle">
-      <button class="lang-toggle__btn active" data-lang="es">ES</button>
-      <span class="lang-toggle__divider">|</span>
-      <button class="lang-toggle__btn" data-lang="en">EN</button>
-    </div>
+    <a href="#apartment">Apartment</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#location">Location</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <div class="lang"><a href="/" aria-current="true">EN</a><span>/</span><a href="/es">ES</a></div>
+    <a class="btn btn--light" href="#contact" data-modal-open>Check Availability</a>
   </div>
 
-  <!-- ============================================
-       HERO
-       ============================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" style="background-image: url('photos/webp/DSC02283.webp');"></div>
-    <div class="hero__content">
-      <p class="hero__subtitle" data-i18n="hero.subtitle"></p>
-      <h1 class="hero__title" data-i18n="hero.title"></h1>
-      <p class="hero__location" data-i18n="hero.tagline"></p>
-      <div class="hero__cta-wrap">
-        <a href="#booking" class="hero__cta whatsapp-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-i18n="hero.cta"></span>
-        </a>
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero__bg" style="background-image:url('photos/webp/DSC02287.webp')"></div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__kicker">Luxury Beach Apartment in Tamarindos, Puerto Escondido</h1>
+        <p class="hero__slogan">Wake up to<br>the Pacific.</p>
+        <p class="hero__sub">A calm two-bedroom coastal stay with ocean views, private balconies, and the beach just seconds away.</p>
+        <div class="hero__cta">
+          <a class="btn btn--light" href="#contact" data-modal-open>Check Availability</a>
+          <a class="btn btn--glass" href="#apartment">View the Apartment</a>
+        </div>
+        <p class="hero__trust">2 bedrooms &middot; 2 bathrooms &middot; Sleeps 4 &middot; 30 seconds to Tamarindo Beach</p>
       </div>
     </div>
-    <div class="hero__scroll-hint">
-      <span></span>
+    <span class="hero__scroll" aria-hidden="true"></span>
+  </section>
+
+  <!-- ===== Quick facts ===== -->
+  <section class="facts" aria-label="At a glance">
+    <div class="facts__grid">
+      <div class="fact"><svg><use href="#ic-bed"/></svg><span>2 Bedrooms</span></div>
+      <div class="fact"><svg><use href="#ic-bath"/></svg><span>2 Bathrooms</span></div>
+      <div class="fact"><svg><use href="#ic-users"/></svg><span>Sleeps 4</span></div>
+      <div class="fact"><svg><use href="#ic-wave"/></svg><span>Ocean-view balcony</span></div>
+      <div class="fact"><svg><use href="#ic-pin"/></svg><span>30 sec to beach</span></div>
+      <div class="fact"><svg><use href="#ic-ac"/></svg><span>AC in bedrooms</span></div>
+      <div class="fact"><svg><use href="#ic-kitchen"/></svg><span>Full kitchen</span></div>
+      <div class="fact"><svg><use href="#ic-car"/></svg><span>Free parking</span></div>
+      <div class="fact"><svg><use href="#ic-paw"/></svg><span>Pet-friendly</span></div>
+      <div class="fact"><svg><use href="#ic-roof"/></svg><span>Public rooftop</span></div>
     </div>
   </section>
 
-  <!-- ============================================
-       ABOUT
-       ============================================ -->
-  <section class="about section-padding" id="about">
-    <div class="container text-center">
-      <p class="section-label fade-in" data-i18n="about.label"></p>
-      <h2 class="section-title fade-in" data-i18n="about.title"></h2>
-      <p class="about__text fade-in" data-i18n="about.text"></p>
-
-      <div class="about__highlights">
-        <div class="highlight-card fade-in fade-in-delay-1">
-          <span class="highlight-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c.6-.5 1.2-1 2.5-1 2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2c1.3 0 1.9-.5 2.5-1"/><path d="M2 17c.6-.5 1.2-1 2.5-1 2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2c1.3 0 1.9-.5 2.5-1"/><path d="M2 7c.6-.5 1.2-1 2.5-1 2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2c1.3 0 1.9-.5 2.5-1"/></svg>
-          </span>
-          <h3 class="highlight-card__title" data-i18n="about.highlight_1_title"></h3>
-          <p class="highlight-card__text" data-i18n="about.highlight_1_text"></p>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-2">
-          <span class="highlight-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/><path d="M21 7L12 2 3 7"/><path d="M12 22V12"/><path d="M12 12H3"/><path d="M12 12h9"/></svg>
-          </span>
-          <h3 class="highlight-card__title" data-i18n="about.highlight_2_title"></h3>
-          <p class="highlight-card__text" data-i18n="about.highlight_2_text"></p>
-        </div>
-        <div class="highlight-card fade-in fade-in-delay-3">
-          <span class="highlight-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          </span>
-          <h3 class="highlight-card__title" data-i18n="about.highlight_3_title"></h3>
-          <p class="highlight-card__text" data-i18n="about.highlight_3_text"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       GALLERY
-       ============================================ -->
-  <section class="gallery section-padding" id="gallery">
+  <!-- ===== Intro ===== -->
+  <section class="section section--cream" id="apartment">
     <div class="container">
-      <p class="section-label text-center fade-in" data-i18n="gallery.label"></p>
-      <h2 class="section-title text-center fade-in" data-i18n="gallery.title"></h2>
-
-      <!-- Arrows flank the carousel -->
-      <div class="gallery__wrapper" style="margin-top: var(--spacing-lg);">
-
-        <button class="gallery__arrow gallery__pag-prev" aria-label="Anterior">&#8249;</button>
-
-        <div class="gallery__carousel">
-
-          <!-- Page 1: 1 portrait (DSC02076) + 7 landscape -->
-          <div class="gallery__page active" data-page="0">
-            <div class="gallery__grid">
-              <div class="gallery__item gallery__item--portrait" data-index="0"><img src="photos/webp/DSC02076.webp" alt="Casa Bawi" loading="eager"></div>
-              <div class="gallery__item" data-index="1"><img src="photos/webp/DSC02348.webp" alt="Casa Bawi" loading="eager"></div>
-              <div class="gallery__item" data-index="2"><img src="photos/webp/DSC02283.webp" alt="Casa Bawi" loading="eager"></div>
-              <div class="gallery__item" data-index="3"><img src="photos/webp/DSC02050.webp" alt="Casa Bawi" loading="eager"></div>
-              <div class="gallery__item" data-index="4"><img src="photos/webp/DSC02067.webp" alt="Casa Bawi" loading="eager"></div>
-              <div class="gallery__item" data-index="5"><img src="photos/webp/DSC02081.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="6"><img src="photos/webp/DSC02089.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="7"><img src="photos/webp/DSC02094.webp" alt="Casa Bawi" loading="lazy"></div>
-            </div>
-          </div>
-
-          <!-- Page 2: 1 portrait (DSC02087) + 7 landscape -->
-          <div class="gallery__page" data-page="1">
-            <div class="gallery__grid">
-              <div class="gallery__item gallery__item--portrait" data-index="8"><img src="photos/webp/DSC02087.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="9"><img src="photos/webp/DSC02097.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="10"><img src="photos/webp/DSC02112.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="11"><img src="photos/webp/DSC02219.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="12"><img src="photos/webp/DSC02225.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="13"><img src="photos/webp/DSC02237.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="14"><img src="photos/webp/DSC02244.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="15"><img src="photos/webp/DSC02253.webp" alt="Casa Bawi" loading="lazy"></div>
-            </div>
-          </div>
-
-          <!-- Page 3: 2 portraits (DSC02093, DSC02312) + 7 landscape -->
-          <div class="gallery__page" data-page="2">
-            <div class="gallery__grid">
-              <div class="gallery__item gallery__item--portrait" data-index="16"><img src="photos/webp/DSC02093.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="17"><img src="photos/webp/DSC02269.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item gallery__item--portrait" data-index="18"><img src="photos/webp/DSC02312.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="19"><img src="photos/webp/DSC02301.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="20"><img src="photos/webp/DSC02319.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="21"><img src="photos/webp/DSC02323.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="22"><img src="photos/webp/DSC02331.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item" data-index="23"><img src="photos/webp/DSC02337.webp" alt="Casa Bawi" loading="lazy"></div>
-              <div class="gallery__item gallery__item--wide" data-index="24"><img src="photos/webp/DSC02342.webp" alt="Casa Bawi" loading="lazy"></div>
-            </div>
-          </div>
-
+      <div class="split fade-up">
+        <div class="split__media"><img src="photos/webp/DSC02276.webp" alt="Pergola terrace with ocean view at Casa Ba'wi Apartemento 8 in Tamarindos, Puerto Escondido" width="1000" height="1250" loading="lazy"></div>
+        <div class="split__body">
+          <p class="eyebrow">The Stay</p>
+          <h2>Your calm coastal base between La Punta and Zicatela</h2>
+          <hr class="rule">
+          <p>Casa Ba'wi Apartemento 8 is a private two-bedroom apartment in Tamarindos, one of Puerto Escondido's most peaceful beachside pockets. Set just steps from Tamarindo Beach, it combines ocean views, warm Mexican architecture, private balconies, air-conditioned bedrooms, and a full kitchen for stays that feel easy, private, and refined.</p>
         </div>
-
-        <button class="gallery__arrow gallery__pag-next" aria-label="Siguiente">&#8250;</button>
-
       </div>
-
-      <!-- Dots below -->
-      <div class="gallery__dots">
-        <button class="gallery__dot active" data-page="0" aria-label="Página 1"></button>
-        <button class="gallery__dot" data-page="1" aria-label="Página 2"></button>
-        <button class="gallery__dot" data-page="2" aria-label="Página 3"></button>
-      </div>
-
     </div>
   </section>
 
-  <!-- ============================================
-       AMENITIES
-       ============================================ -->
-  <section class="amenities section-padding" id="amenities">
+  <!-- ===== The apartment ===== -->
+  <section class="section section--sand">
     <div class="container">
-      <p class="section-label text-center fade-in" data-i18n="amenities.label"></p>
-      <h2 class="section-title text-center fade-in" data-i18n="amenities.title"></h2>
-
-      <div class="amenities__grid" style="margin-top: var(--spacing-lg);">
-        <div class="amenity fade-in fade-in-delay-1">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.bedrooms"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-2">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16"/><path d="m4 8 4-4"/><circle cx="9" cy="9" r="2"/><path d="M12 11v.01"/><path d="M12 15v.01"/><path d="M12 19v.01"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.bathrooms"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-3">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.kitchen"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-4">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.ac"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-1">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.wifi"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-2">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a10 10 0 0 0 0 20"/><circle cx="12" cy="12" r="10"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.ocean"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-3">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.laundry"></span>
-        </div>
-        <div class="amenity fade-in fade-in-delay-4">
-          <span class="amenity__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="m9 8 3 3 3-3"/><path d="m9 16 3-3 3 3"/></svg>
-          </span>
-          <span class="amenity__name" data-i18n="amenities.elevator"></span>
+      <div class="split split--reverse split--stretch fade-up">
+        <div class="split__media"><img src="photos/webp/DSC02253.webp" alt="Open living room and kitchen with ocean light at Casa Ba'wi Apartemento 8" width="1200" height="900" loading="lazy"></div>
+        <div class="split__body">
+          <p class="eyebrow">The Apartment</p>
+          <h2>Designed for easy, elevated beach living</h2>
+          <hr class="rule">
+          <p>One private apartment inside a quiet building, laid out for comfort and slow coastal days.</p>
+          <ul class="featurelist">
+            <li><svg><use href="#ic-check"/></svg>2 bedrooms &amp; 2 bathrooms</li>
+            <li><svg><use href="#ic-check"/></svg>King bedroom &amp; a second bedroom with two single beds</li>
+            <li><svg><use href="#ic-check"/></svg>Living room with a smart TV and a full kitchen</li>
+            <li><svg><use href="#ic-check"/></svg>Two private balconies — ocean view from the living room balcony</li>
+            <li><svg><use href="#ic-check"/></svg>Washing machine on the second balcony</li>
+            <li><svg><use href="#ic-check"/></svg>Public rooftop access in the building</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       DETAILS
-       ============================================ -->
-  <section class="details section-padding" id="details">
+  <!-- ===== Bedrooms & bathrooms ===== -->
+  <section class="section section--cream">
     <div class="container">
-      <p class="section-label text-center fade-in" data-i18n="details.label"></p>
-      <h2 class="section-title text-center fade-in" data-i18n="details.title"></h2>
+      <div class="section__head text-center fade-up">
+        <p class="eyebrow">Rooms</p>
+        <h2>Two bedrooms, two bathrooms,<br>room to slow down</h2>
+      </div>
+      <div class="rooms">
+        <article class="room fade-up">
+          <div class="room__media"><img src="photos/webp/DSC02054.webp" alt="King master bedroom with ceiling fan at Casa Ba'wi Apartemento 8, Puerto Escondido" width="1100" height="880" loading="lazy"></div>
+          <div class="room__body">
+            <span class="room__num">01</span>
+            <p class="eyebrow">Master Bedroom</p>
+            <h3>King bed &amp; private balcony</h3>
+            <ul class="room__list">
+              <li><svg><use href="#ic-bed"/></svg>King bed</li>
+              <li><svg><use href="#ic-balcony"/></svg>Private balcony</li>
+              <li><svg><use href="#ic-ac"/></svg>Air conditioning</li>
+              <li><svg><use href="#ic-tv"/></svg>Ceiling fan &amp; TV</li>
+            </ul>
+          </div>
+        </article>
+        <article class="room fade-up">
+          <div class="room__media"><img src="photos/webp/DSC02084.webp" alt="Second bedroom with two single beds, air conditioning and ceiling fan at Casa Ba'wi" width="1100" height="880" loading="lazy"></div>
+          <div class="room__body">
+            <span class="room__num">02</span>
+            <p class="eyebrow">Second Bedroom</p>
+            <h3>Two single beds</h3>
+            <ul class="room__list">
+              <li><svg><use href="#ic-bed"/></svg>Two single beds</li>
+              <li><svg><use href="#ic-ac"/></svg>Air conditioning</li>
+              <li><svg><use href="#ic-fan"/></svg>Ceiling fan &amp; TV</li>
+              <li><svg><use href="#ic-check"/></svg>Quiet &amp; bright</li>
+            </ul>
+          </div>
+        </article>
+        <article class="room fade-up">
+          <div class="room__media"><img src="photos/webp/DSC02305.webp" alt="Modern bathroom with terracotta wall and tropical plant at Casa Ba'wi Puerto Escondido" width="1100" height="880" loading="lazy"></div>
+          <div class="room__body">
+            <span class="room__num">03</span>
+            <p class="eyebrow">Two Bathrooms</p>
+            <h3>Clean, modern finish</h3>
+            <ul class="room__list">
+              <li><svg><use href="#ic-bath"/></svg>Two full bathrooms</li>
+              <li><svg><use href="#ic-check"/></svg>Modern finish</li>
+              <li><svg><use href="#ic-towel"/></svg>Towels included</li>
+              <li><svg><use href="#ic-check"/></svg>Soap &amp; shampoo</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <div class="details__grid" style="margin-top: var(--spacing-lg);">
-        <div class="details__column fade-in">
-          <h3 data-i18n="details.col_space"></h3>
-          <div class="details__list">
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.capacity_label"></span>
-              <span class="details__item-value" data-i18n="details.capacity_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.bedroom1_label"></span>
-              <span class="details__item-value" data-i18n="details.bedroom1_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.bedroom2_label"></span>
-              <span class="details__item-value" data-i18n="details.bedroom2_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.pets_label"></span>
-              <span class="details__item-value" data-i18n="details.pets_value"></span>
-            </div>
+  <!-- ===== Balconies / ocean / rooftop ===== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="split fade-up">
+        <div class="split__media"><img src="photos/webp/DSC02115.webp" alt="Sunset over the ocean seen from Casa Ba'wi near Tamarindo Beach" width="1200" height="900" loading="lazy"></div>
+        <div class="split__body">
+          <p class="eyebrow">The View</p>
+          <h2>Private balconies, ocean air, and sunset light</h2>
+          <hr class="rule">
+          <p>The living room opens onto a private balcony with an ocean view, while a second private balcony connects to the master bedroom. Start the morning with coffee in the breeze, slow down through the afternoon, and watch the light turn at sunset. The building's public rooftop adds one more place to take in the coast.</p>
+          <p style="margin-top:1.4rem"><a class="btn btn--outline-light" href="#gallery">Explore the gallery</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Amenities ===== -->
+  <section class="section section--cream" id="amenities">
+    <div class="container">
+      <div class="section__head text-center fade-up">
+        <p class="eyebrow">Amenities</p>
+        <h2>Everything you need<br>for short and long stays</h2>
+      </div>
+      <div class="amenities__grid fade-up">
+        <div class="amenity-group">
+          <h3>Comfort</h3>
+          <ul>
+            <li><svg><use href="#ic-wifi"/></svg>WiFi</li>
+            <li><svg><use href="#ic-ac"/></svg>AC in both bedrooms</li>
+            <li><svg><use href="#ic-fan"/></svg>Ceiling fans</li>
+            <li><svg><use href="#ic-towel"/></svg>Towels &amp; linens</li>
+            <li><svg><use href="#ic-tv"/></svg>Smart TV + 2 bedroom TVs</li>
+          </ul>
+        </div>
+        <div class="amenity-group">
+          <h3>Kitchen</h3>
+          <ul>
+            <li><svg><use href="#ic-kitchen"/></svg>Full kitchen</li>
+            <li><svg><use href="#ic-water"/></svg>Water dispenser</li>
+            <li><svg><use href="#ic-coffee"/></svg>Coffee maker &amp; microwave</li>
+            <li><svg><use href="#ic-utensils"/></svg>Pans &amp; cutlery</li>
+            <li><svg><use href="#ic-blender"/></svg>Blender &amp; juicer</li>
+          </ul>
+        </div>
+        <div class="amenity-group">
+          <h3>Outdoor &amp; Building</h3>
+          <ul>
+            <li><svg><use href="#ic-wave"/></svg>Ocean-view balcony</li>
+            <li><svg><use href="#ic-balcony"/></svg>Second private balcony</li>
+            <li><svg><use href="#ic-roof"/></svg>Public rooftop</li>
+            <li><svg><use href="#ic-car"/></svg>Free parking out front</li>
+            <li><svg><use href="#ic-washer"/></svg>Washing machine</li>
+          </ul>
+        </div>
+        <div class="amenity-group">
+          <h3>Guest-friendly</h3>
+          <ul>
+            <li><svg><use href="#ic-calendar"/></svg>Short &amp; long stays</li>
+            <li><svg><use href="#ic-paw"/></svg>Pet-friendly</li>
+            <li><svg><use href="#ic-child"/></svg>Child-friendly</li>
+            <li><svg><use href="#ic-ban"/></svg>No smoking</li>
+            <li><svg><use href="#ic-ban"/></svg>No parties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Location ===== -->
+  <section class="section section--sand" id="location">
+    <div class="container">
+      <div class="location__grid fade-up">
+        <div>
+          <p class="eyebrow">Location</p>
+          <h2>Quiet Tamarindos location, seconds from the beach</h2>
+          <hr class="rule">
+          <p>Casa Ba'wi is located in Tamarindos, a quiet beachside area positioned between La Punta and Zicatela. You are around 30 seconds from Tamarindo Beach, 2 minutes from Sandala for coffee and lunch, 7 minutes from Nasiva, around 15 minutes walking to La Punta, and around 20 minutes walking to the Zicatela clubs area.</p>
+          <div class="location__cards">
+            <div class="loc-card"><span class="loc-card__name">Tamarindo Beach</span><span class="loc-card__time">30 sec walk</span></div>
+            <div class="loc-card"><span class="loc-card__name">Sandala — coffee &amp; lunch</span><span class="loc-card__time">2 min walk</span></div>
+            <div class="loc-card"><span class="loc-card__name">Nasiva restaurant</span><span class="loc-card__time">7 min walk</span></div>
+            <div class="loc-card"><span class="loc-card__name">La Punta</span><span class="loc-card__time">15 min walk</span></div>
+            <div class="loc-card"><span class="loc-card__name">Zicatela clubs</span><span class="loc-card__time">20 min walk</span></div>
           </div>
         </div>
-
-        <div class="details__column fade-in fade-in-delay-2">
-          <h3 data-i18n="details.col_booking"></h3>
-          <div class="details__list">
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.minstay_label"></span>
-              <span class="details__item-value" data-i18n="details.minstay_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.checkin_label"></span>
-              <span class="details__item-value" data-i18n="details.checkin_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.checkout_label"></span>
-              <span class="details__item-value" data-i18n="details.checkout_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.deposit_label"></span>
-              <span class="details__item-value" data-i18n="details.deposit_value"></span>
-            </div>
-            <div class="details__item">
-              <span class="details__item-label" data-i18n="details.payment_label"></span>
-              <span class="details__item-value" data-i18n="details.payment_value"></span>
-            </div>
+        <div>
+          <div class="map-embed">
+            <iframe src="https://www.google.com/maps?q=15.841838,-97.048472&z=16&output=embed" title="Casa Ba&#39;wi Apartemento 8 location in Tamarindos, Puerto Escondido" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
+          <p style="margin-top:1.6rem"><img src="photos/webp/DSC02350.webp" alt="Terracotta building entrance with tropical plants in Tamarindos, Puerto Escondido" width="1200" height="800" loading="lazy"></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       LOCATION
-       ============================================ -->
-  <section class="location section-padding" id="location">
+  <!-- ===== Perfect for ===== -->
+  <section class="section section--salmon">
+    <div class="container text-center fade-up">
+      <p class="eyebrow">Perfect for</p>
+      <h2>Beach days, remote work, and longer stays</h2>
+      <div class="tags" style="justify-content:center">
+        <span class="tag">Couples</span>
+        <span class="tag">Small families</span>
+        <span class="tag">Friends</span>
+        <span class="tag">Remote workers</span>
+        <span class="tag">Surf trips</span>
+        <span class="tag">Longer Puerto Escondido stays</span>
+        <span class="tag">Quiet, close to La Punta &amp; Zicatela</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section class="section section--cream" id="gallery">
     <div class="container">
-      <p class="section-label text-center fade-in" data-i18n="location.label"></p>
-      <h2 class="section-title text-center fade-in" data-i18n="location.title"></h2>
-
-      <div class="location__content" style="margin-top: var(--spacing-lg);">
-        <div class="location__text fade-in">
-          <p data-i18n="location.text"></p>
-          <p class="location__address">
-            <span data-i18n="location.address_line1"></span><br>
-            <span data-i18n="location.address_line2"></span>
-          </p>
-        </div>
-
-        <div class="location__map fade-in fade-in-delay-2">
-          <iframe
-            src="https://maps.google.com/maps?q=15.8418376,-97.0485439&hl=es&z=16&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Casa Bawi location map">
-          </iframe>
-        </div>
+      <div class="section__head text-center fade-up">
+        <p class="eyebrow">Gallery</p>
+        <h2>Explore Casa Ba'wi</h2>
+      </div>
+      <div class="gallery__tabs fade-up" role="tablist">
+        <button class="gallery__tab active" data-filter="all">All</button>
+        <button class="gallery__tab" data-filter="views">Views &amp; Balcony</button>
+        <button class="gallery__tab" data-filter="living">Living</button>
+        <button class="gallery__tab" data-filter="kitchen">Kitchen</button>
+        <button class="gallery__tab" data-filter="bedrooms">Bedrooms</button>
+        <button class="gallery__tab" data-filter="bathrooms">Bathrooms</button>
+        <button class="gallery__tab" data-filter="building">Building</button>
+      </div>
+      <div class="gallery__grid fade-up">
+        <figure class="gallery__item" data-cat="views" data-index="0"><img src="photos/webp/DSC02267.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="eager" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="views" data-index="1"><img src="photos/webp/DSC02276.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="eager" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="views" data-index="2"><img src="photos/webp/DSC02287.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="eager" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="views" data-index="3"><img src="photos/webp/DSC02280.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="views" data-index="4"><img src="photos/webp/DSC02115.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="views" data-index="5"><img src="photos/webp/DSC02113.webp" alt="Ocean-view balcony at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="living" data-index="6"><img src="photos/webp/DSC02253.webp" alt="Living room at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="living" data-index="7"><img src="photos/webp/DSC02259-HDR.webp" alt="Living room at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="living" data-index="8"><img src="photos/webp/DSC02340.webp" alt="Living room at Casa Ba&#39;wi Apartemento 8 in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="kitchen" data-index="9"><img src="photos/webp/DSC02244.webp" alt="Full kitchen at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="kitchen" data-index="10"><img src="photos/webp/DSC02326.webp" alt="Full kitchen at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="kitchen" data-index="11"><img src="photos/webp/DSC02242.webp" alt="Full kitchen at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="kitchen" data-index="12"><img src="photos/webp/DSC02324.webp" alt="Full kitchen at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bedrooms" data-index="13"><img src="photos/webp/DSC02054.webp" alt="Air-conditioned bedroom at Casa Ba&#39;wi Apartemento 8, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bedrooms" data-index="14"><img src="photos/webp/DSC02052.webp" alt="Air-conditioned bedroom at Casa Ba&#39;wi Apartemento 8, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bedrooms" data-index="15"><img src="photos/webp/DSC02060.webp" alt="Air-conditioned bedroom at Casa Ba&#39;wi Apartemento 8, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bedrooms" data-index="16"><img src="photos/webp/DSC02084.webp" alt="Air-conditioned bedroom at Casa Ba&#39;wi Apartemento 8, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bedrooms" data-index="17"><img src="photos/webp/DSC02089.webp" alt="Air-conditioned bedroom at Casa Ba&#39;wi Apartemento 8, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bathrooms" data-index="18"><img src="photos/webp/DSC02305.webp" alt="Modern bathroom at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bathrooms" data-index="19"><img src="photos/webp/DSC02301.webp" alt="Modern bathroom at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bathrooms" data-index="20"><img src="photos/webp/DSC02310.webp" alt="Modern bathroom at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bathrooms" data-index="21"><img src="photos/webp/DSC02068.webp" alt="Modern bathroom at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="bathrooms" data-index="22"><img src="photos/webp/DSC02303.webp" alt="Modern bathroom at Casa Ba&#39;wi Apartemento 8 in Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="building" data-index="23"><img src="photos/webp/DSC02350.webp" alt="Terracotta building and entrance with tropical plants in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="building" data-index="24"><img src="photos/webp/DSC02356.webp" alt="Terracotta building and entrance with tropical plants in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
+        <figure class="gallery__item" data-cat="building" data-index="25"><img src="photos/webp/DSC02354.webp" alt="Terracotta building and entrance with tropical plants in Tamarindos, Puerto Escondido" loading="lazy" width="1200" height="800"></figure>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       BOOKING / CONTACT
-       ============================================ -->
-  <section class="booking section-padding" id="booking">
-    <div class="container text-center">
-      <p class="section-label fade-in" data-i18n="booking.label"></p>
-      <h2 class="section-title fade-in" data-i18n="booking.title"></h2>
-      <p class="booking__text fade-in" data-i18n="booking.text"></p>
-
-      <div class="booking__actions fade-in">
-        <a href="#" class="btn-whatsapp whatsapp-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-i18n="booking.cta"></span>
-        </a>
+  <!-- ===== FAQ ===== -->
+  <section class="section section--cream" id="faq">
+    <div class="container">
+      <div class="section__head text-center fade-up">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked questions</h2>
       </div>
-
-      <p class="booking__form-divider fade-in" data-i18n="booking.divider"></p>
-
-      <form class="booking__form fade-in">
-        <div class="form-group">
-          <input type="text" name="name" data-i18n-placeholder="booking.form_name" required>
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" data-i18n-placeholder="booking.form_email" required>
-        </div>
-        <div class="form-group">
-          <textarea name="message" rows="4" data-i18n-placeholder="booking.form_message" required></textarea>
-        </div>
-        <button type="submit" class="btn-submit" data-i18n="booking.form_submit"></button>
-      </form>
+      <div class="faq fade-up">
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">How close is Casa Ba'wi to the beach?</button><div class="faq__a"><p>Casa Ba'wi is around a 30 second walk from Tamarindo Beach.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">How many guests can stay?</button><div class="faq__a"><p>The apartment is designed for up to 4 guests, with one king bedroom and one bedroom with two small single beds.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Does the apartment have air conditioning?</button><div class="faq__a"><p>Yes, both bedrooms have air conditioning. There are also ceiling fans in the living area and bedrooms.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is there WiFi?</button><div class="faq__a"><p>Yes, WiFi is available throughout the apartment.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is there a kitchen?</button><div class="faq__a"><p>Yes, Casa Ba'wi has a full kitchen with a water dispenser, coffee maker, microwave, pans, cutlery, blender, and juicer.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is there parking?</button><div class="faq__a"><p>Yes, free parking is available in front of the building.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is Casa Ba'wi pet-friendly?</button><div class="faq__a"><p>Yes, pets are allowed.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is smoking or partying allowed?</button><div class="faq__a"><p>No, Casa Ba'wi is a no-smoking apartment and parties are not allowed.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">Is there a pool?</button><div class="faq__a"><p>No, there is no pool. The beach is just around 30 seconds away.</p></div></div>
+        <div class="faq__item"><button class="faq__q" aria-expanded="false">How do I check availability?</button><div class="faq__a"><p>Send a WhatsApp message with your dates and number of guests, and we will confirm availability and current rates. Rates vary by season and length of stay.</p></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
+  <!-- ===== Contact / booking ===== -->
+  <section class="section booking" id="contact">
+    <div class="booking__bg" style="background-image:url('photos/webp/DSC02115.webp')"></div>
+    <div class="container">
+      <div class="booking__grid">
+        <div class="booking__intro fade-up">
+          <p class="eyebrow eyebrow--light">Booking</p>
+          <h2>Ready to stay at Casa Ba'wi?</h2>
+          <hr class="rule">
+          <p>Send us your dates, number of guests, and any questions. We'll confirm availability and current rates directly through WhatsApp. Rates vary by season and length of stay.</p>
+          <a class="btn btn--light" href="https://wa.me/529581075503?text=Hi%2C%20I%27m%20interested%20in%20Casa%20Ba%27wi%20Apartemento%208.%20Could%20you%20please%20confirm%20availability%20and%20rates%20for%20my%20dates%3F" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg>Check Availability on WhatsApp</a>
+        </div>
+        <form class="form fade-up" novalidate>
+          <div class="form__row">
+            <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
+            <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com"></div>
+          </div>
+          <div class="form__row">
+            <div><label for="f-tel">WhatsApp / Phone</label><input id="f-tel" name="tel" type="tel" placeholder="+1 ..."></div>
+            <div><label for="f-guests">Guests</label><input id="f-guests" name="guests" type="number" min="1" max="6" placeholder="2"></div>
+          </div>
+          <div class="form__row">
+            <div><label for="f-arr">Arrival</label><input id="f-arr" name="arrival" type="date"></div>
+            <div><label for="f-dep">Departure</label><input id="f-dep" name="departure" type="date"></div>
+          </div>
+          <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your trip..."></textarea></div>
+          <button class="btn btn--light" type="submit"><svg><use href="#ic-wa"/></svg>Send via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
   <footer class="footer">
-    <div class="container">
-      <p class="footer__copy" data-i18n="footer.copy"></p>
-      <p class="footer__contact">
-        <a href="tel:+529581075503">(958) 107-5503</a>
-      </p>
+    <div class="container footer__inner">
+      <img src="photos/casabawilogowhite.png" alt="Casa Ba'wi Apartemento 8" width="160" height="34">
+      <p class="footer__meta">Tamarindos, Puerto Escondido, Oaxaca · <a href="tel:+529581075503">+52 958 107 5503</a></p>
+      <p class="footer__meta">© <span id="year">2026</span> Casa Ba'wi Apartemento 8</p>
     </div>
   </footer>
 
-  <!-- ============================================
-       LIGHTBOX
-       ============================================ -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox__close" aria-label="Close">✕</button>
-    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">&#8249;</button>
-    <button class="lightbox__nav lightbox__nav--next" aria-label="Next">&#8250;</button>
-    <div class="lightbox__content"></div>
+  <!-- ===== Sticky / floating WhatsApp ===== -->
+  <div class="sticky-cta">
+    <a class="btn" href="https://wa.me/529581075503?text=Hi%2C%20I%27m%20interested%20in%20Casa%20Ba%27wi%20Apartemento%208.%20Could%20you%20please%20confirm%20availability%20and%20rates%20for%20my%20dates%3F" target="_blank" rel="noopener"><svg style="width:18px;height:18px"><use href="#ic-wa"/></svg>Check Availability</a>
+  </div>
+  <a class="wa-float" href="https://wa.me/529581075503?text=Hi%2C%20I%27m%20interested%20in%20Casa%20Ba%27wi%20Apartemento%208.%20Could%20you%20please%20confirm%20availability%20and%20rates%20for%20my%20dates%3F" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
+
+  <!-- ===== Lead-capture popup ===== -->
+  <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-label="Check availability">
+    <div class="modal__dialog">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__left">
+        <h2>Your luxury beach stay in Tamarindos &mdash; personal service, direct booking.</h2>
+        <div class="modal__features">
+          <div class="modal__feature"><svg><use href="#ic-wa"/></svg><span>Personal reply from your host, usually within hours</span></div>
+          <div class="modal__feature"><svg><use href="#ic-check"/></svg><span>Direct booking by WhatsApp &mdash; no platform fees</span></div>
+          <div class="modal__feature"><svg><use href="#ic-bed"/></svg><span>Private two-bedroom apartment, sleeps 4</span></div>
+          <div class="modal__feature"><svg><use href="#ic-wave"/></svg><span>Ocean-view balcony, 30 seconds to Tamarindo Beach</span></div>
+          <div class="modal__feature"><svg><use href="#ic-pin"/></svg><span>Quiet Tamarindos &mdash; between La Punta &amp; Zicatela</span></div>
+          <div class="modal__feature"><svg><use href="#ic-paw"/></svg><span>Pet- &amp; child-friendly, short and long stays</span></div>
+        </div>
+        <a class="btn btn--outline modal__wa" href="https://wa.me/529581075503?text=Hi%2C%20I%27m%20interested%20in%20Casa%20Ba%27wi%20Apartemento%208.%20Could%20you%20please%20confirm%20availability%20and%20rates%20for%20my%20dates%3F" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg>Prefer to chat? Message us on WhatsApp</a>
+        <div class="modal__trust">
+          <span class="chip"><svg><use href="#ic-bed"/></svg>2 bedrooms</span>
+          <span class="chip"><svg><use href="#ic-bath"/></svg>2 bathrooms</span>
+          <span class="chip"><svg><use href="#ic-users"/></svg>Sleeps 4</span>
+          <span class="chip"><svg><use href="#ic-pin"/></svg>Puerto Escondido, Oaxaca</span>
+        </div>
+        <div class="modal__logo"><img src="photos/casabawilogoblack.png" alt="Casa Ba'wi Apartemento 8" width="190" height="40"></div>
+      </div>
+      <div class="modal__right">
+        <h2>Check <span class="hl">availability</span></h2>
+        <p class="sub">Send your dates and we&#39;ll reply by WhatsApp. Rates vary by season and length of stay.</p>
+        <form class="form modal__form" novalidate>
+          <div><label for="m-name">Name</label><input id="m-name" name="name" type="text" placeholder="Your name" required></div>
+          <div><label for="m-email">Email</label><input id="m-email" name="email" type="email" placeholder="you@email.com"></div>
+          <div><label for="m-tel">WhatsApp / Phone</label><input id="m-tel" name="tel" type="tel" placeholder="+1 ..."></div>
+          <div><label for="m-stay">Type of stay</label>
+            <select id="m-stay" name="stay" aria-label="Type of stay">
+              <option value="" disabled selected>Select&hellip;</option>
+              <option>Short stay</option>
+              <option>Long stay</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div><label for="m-msg">Your dates &amp; guests</label><textarea id="m-msg" name="message" placeholder="e.g. 12-18 March, 2 guests"></textarea></div>
+          <button class="btn btn--salmon" type="submit">Check availability</button>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <!-- ===== Lightbox ===== -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox__content"></div>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next">&#8250;</button>
+  </div>
+
+  <script src="js/config.js?v=16"></script>
+  <script src="js/main.js?v=16"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>

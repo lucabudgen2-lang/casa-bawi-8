@@ -1,355 +1,194 @@
-/* ============================================
-   Casa Bawi — Main JavaScript
-   i18n system, animations, gallery, navigation
-   ============================================ */
-
+/* ============================================================
+   Casa Ba'wi Apartemento 8 — Main JS
+   Header · mobile menu · animations · gallery · lightbox ·
+   FAQ accordion · WhatsApp contact form
+   Content is server-rendered per language; this only handles
+   behaviour. WhatsApp links are real <a href> in the HTML and
+   work without JS. Booking number comes from js/config.js.
+   ============================================================ */
 (function () {
   'use strict';
 
-  // ============================================
-  // i18n SYSTEM
-  // ============================================
-  const LANG_KEY = 'casabawi-lang';
-  const localeCache = {};
-  let currentLocale = {};
+  var CFG = window.CASA_CONFIG || {};
+  var LANG = (document.documentElement.lang || 'en').slice(0, 2);
+  var isES = LANG === 'es';
 
-  /**
-   * Resolve a dot-notation key from an object.
-   * e.g. resolve('nav.about', {nav:{about:'Sobre'}}) => 'Sobre'
-   */
-  function resolve(key, obj) {
-    return key.split('.').reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : null), obj);
-  }
-
-  /**
-   * Load a locale JSON file, with caching.
-   */
-  async function loadLocale(lang) {
-    if (localeCache[lang]) return localeCache[lang];
-
-    try {
-      const resp = await fetch(`locales/${lang}.json`);
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const data = await resp.json();
-      localeCache[lang] = data;
-      return data;
-    } catch (err) {
-      console.error(`Failed to load locale "${lang}":`, err);
-      return null;
-    }
-  }
-
-  /**
-   * Apply translations to all elements with data-i18n and data-i18n-placeholder.
-   */
-  function applyTranslations(locale) {
-    if (!locale) return;
-    currentLocale = locale;
-
-    // Text content
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const value = resolve(key, locale);
-      if (value !== null) {
-        el.textContent = value;
-      }
-    });
-
-    // Placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      const value = resolve(key, locale);
-      if (value !== null) {
-        el.placeholder = value;
-      }
-    });
-  }
-
-  /**
-   * Set the language and apply all translations.
-   */
-  async function setLanguage(lang) {
-    const locale = await loadLocale(lang);
-    if (!locale) return;
-
-    document.documentElement.lang = lang;
-    localStorage.setItem(LANG_KEY, lang);
-
-    applyTranslations(locale);
-
-    // Update toggle buttons (both navbar and mobile)
-    document.querySelectorAll('.lang-toggle__btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-  }
-
-  function initLanguage() {
-    const saved = localStorage.getItem(LANG_KEY) || 'es';
-
-    // Bind click handlers on all toggle buttons
-    document.querySelectorAll('.lang-toggle__btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
-      });
-    });
-
-    // Initial load
-    setLanguage(saved);
-  }
-
-  // ============================================
-  // NAVBAR SCROLL EFFECT
-  // ============================================
-  function initNavbar() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    const threshold = 80;
-
-    function onScroll() {
-      navbar.classList.toggle('scrolled', window.scrollY > threshold);
-    }
-
+  /* ---- Header scroll ---- */
+  function initHeader() {
+    var header = document.querySelector('.header');
+    if (!header) return;
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 60); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
-  // ============================================
-  // MOBILE MENU
-  // ============================================
+  /* ---- Mobile menu ---- */
   function initMobileMenu() {
-    const burger = document.querySelector('.burger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    if (!burger || !mobileNav) return;
-
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      mobileNav.classList.toggle('active');
-      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.mobile-nav');
+    if (!burger || !nav) return;
+    function close() { burger.classList.remove('open'); nav.classList.remove('active'); document.body.style.overflow = ''; }
+    burger.addEventListener('click', function () {
+      var open = burger.classList.toggle('open');
+      nav.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+  }
 
-    // Close on link click
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        burger.classList.remove('open');
-        mobileNav.classList.remove('active');
+  /* ---- Fade-up reveal (scroll-based, deep-link safe) ---- */
+  function initAnimations() {
+    var els = Array.prototype.slice.call(document.querySelectorAll('.fade-up'));
+    if (!els.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    function reveal() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      els = els.filter(function (el) {
+        var top = el.getBoundingClientRect().top;
+        if (top < vh * 0.9) { el.classList.add('visible'); return false; }
+        return true;
+      });
+      if (!els.length) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      }
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { reveal(); ticking = false; });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('load', reveal);
+    reveal();
+  }
+
+  /* ---- Gallery category filter ---- */
+  function initGallery() {
+    var tabs = document.querySelectorAll('.gallery__tab');
+    var items = document.querySelectorAll('.gallery__item');
+    if (!tabs.length) return;
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var f = tab.dataset.filter;
+        items.forEach(function (it) {
+          it.classList.toggle('hide', !(f === 'all' || it.dataset.cat === f));
+        });
+      });
+    });
+  }
+
+  /* ---- Lightbox (cycles currently-visible photos) ---- */
+  function initLightbox() {
+    var lb = document.querySelector('.lightbox');
+    if (!lb) return;
+    var content = lb.querySelector('.lightbox__content');
+    var all = Array.prototype.slice.call(document.querySelectorAll('.gallery__item'));
+    var list = all, i = 0;
+    function visible() { return all.filter(function (it) { return !it.classList.contains('hide'); }); }
+    function show() {
+      var img = list[i].querySelector('img');
+      content.innerHTML = '';
+      var e = document.createElement('img'); e.src = img.src; e.alt = img.alt; content.appendChild(e);
+    }
+    function open(item) { list = visible(); i = list.indexOf(item); if (i < 0) i = 0; show(); lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+    function nxt() { i = (i + 1) % list.length; show(); }
+    function prv() { i = (i - 1 + list.length) % list.length; show(); }
+    all.forEach(function (it) { it.addEventListener('click', function () { open(it); }); });
+    lb.querySelector('.lightbox__close').addEventListener('click', close);
+    lb.querySelector('.lightbox__nav--next').addEventListener('click', nxt);
+    lb.querySelector('.lightbox__nav--prev').addEventListener('click', prv);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') nxt();
+      if (e.key === 'ArrowLeft') prv();
+    });
+  }
+
+  /* ---- FAQ accordion ---- */
+  function initFAQ() {
+    document.querySelectorAll('.faq__item').forEach(function (item) {
+      var q = item.querySelector('.faq__q');
+      var a = item.querySelector('.faq__a');
+      if (!q || !a) return;
+      q.addEventListener('click', function () {
+        var open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : '0';
+      });
+    });
+  }
+
+  /* ---- All enquiry forms -> WhatsApp (contact + popup) ---- */
+  function labelFor(field, form) {
+    if (field.id) { var l = form.querySelector('label[for="' + field.id + '"]'); if (l && l.textContent.trim()) return l.textContent.trim(); }
+    return field.getAttribute('placeholder') || field.getAttribute('aria-label') || field.name;
+  }
+  function initForms() {
+    var forms = document.querySelectorAll('.form');
+    if (!forms.length) return;
+    var phone = (CFG.whatsapp && CFG.whatsapp.phone) || '529581075503';
+    var intro = isES ? 'Nueva consulta de Casa Ba\'wi Apartemento 8' : 'New enquiry for Casa Ba\'wi Apartemento 8';
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fields = form.querySelectorAll('input[name], textarea[name], select[name]');
+        var nameV = '', contactOk = false, lines = [];
+        fields.forEach(function (f) {
+          var val = (f.value || '').trim();
+          if (f.name === 'name') nameV = val;
+          if ((f.name === 'email' || f.name === 'tel') && val) contactOk = true;
+          if (val) lines.push(labelFor(f, form) + ': ' + val);
+        });
+        if (!nameV || !contactOk) {
+          form.querySelectorAll('[required]').forEach(function (r) { if (!r.value.trim()) r.style.borderColor = '#c0392b'; });
+          return;
+        }
+        var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(intro + '\n\n' + lines.join('\n'));
+        window.open(url, '_blank', 'noopener');
+        form.reset();
+        var modal = form.closest('.modal'); if (modal) modal.classList.remove('active');
         document.body.style.overflow = '';
       });
     });
   }
 
-  // ============================================
-  // SCROLL ANIMATIONS (Intersection Observer)
-  // ============================================
-  function initScrollAnimations() {
-    const elements = document.querySelectorAll('.fade-in');
-    if (!elements.length) return;
-
-    // Respect reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      elements.forEach(el => el.classList.add('visible'));
-      return;
+  /* ---- Lead-capture popup ---- */
+  function initModal() {
+    var modal = document.querySelector('.modal');
+    if (!modal) return;
+    var KEY = 'casabawi-popup';
+    function open() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function close() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+    modal.querySelector('.modal__close').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('active')) close(); });
+    document.querySelectorAll('[data-modal-open]').forEach(function (t) {
+      t.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
+    var cfg = CFG.popup || {};
+    if (cfg.autoOpen && !sessionStorage.getItem(KEY)) {
+      window.setTimeout(function () {
+        if (!modal.classList.contains('active')) open();
+        try { sessionStorage.setItem(KEY, '1'); } catch (err) {}
+      }, (cfg.delaySeconds || 6) * 1000);
     }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
-    );
-
-    elements.forEach(el => observer.observe(el));
   }
 
-  // ============================================
-  // GALLERY CAROUSEL PAGINATION
-  // ============================================
-  function initGalleryCarousel() {
-    var pages = document.querySelectorAll('.gallery__page');
-    var dots = document.querySelectorAll('.gallery__dot');
-    var prevBtn = document.querySelector('.gallery__pag-prev');
-    var nextBtn = document.querySelector('.gallery__pag-next');
-    if (!pages.length) return;
-
-    var current = 0;
-    var total = pages.length;
-
-    function goTo(index) {
-      pages[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = (index + total) % total;
-      pages[current].classList.add('active');
-      dots[current].classList.add('active');
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
-
-    dots.forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        goTo(parseInt(dot.dataset.page, 10));
-      });
-    });
-  }
-
-  // ============================================
-  // LIGHTBOX GALLERY
-  // ============================================
-  function initLightbox() {
-    var lightbox = document.querySelector('.lightbox');
-    if (!lightbox) return;
-
-    var closeBtn = lightbox.querySelector('.lightbox__close');
-    var prevBtn = lightbox.querySelector('.lightbox__nav--prev');
-    var nextBtn = lightbox.querySelector('.lightbox__nav--next');
-    var contentArea = lightbox.querySelector('.lightbox__content');
-
-    // Collect ALL photos across all pages in order
-    var allItems = Array.from(document.querySelectorAll('.gallery__item'));
-    var currentIndex = 0;
-
-    function getSrc(item) {
-      var img = item.querySelector('img');
-      return img ? img.src : '';
-    }
-    function getAlt(item) {
-      var img = item.querySelector('img');
-      return img ? img.alt : 'Casa Bawi';
-    }
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateContent();
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function updateContent() {
-      var src = getSrc(allItems[currentIndex]);
-      var alt = getAlt(allItems[currentIndex]);
-      contentArea.innerHTML = '';
-      if (src) {
-        var img = document.createElement('img');
-        img.src = src;
-        img.alt = alt;
-        contentArea.appendChild(img);
-      }
-    }
-
-    function next() { currentIndex = (currentIndex + 1) % allItems.length; updateContent(); }
-    function prev() { currentIndex = (currentIndex - 1 + allItems.length) % allItems.length; updateContent(); }
-
-    allItems.forEach(function(item, index) {
-      item.addEventListener('click', function() { openLightbox(index); });
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prev);
-    if (nextBtn) nextBtn.addEventListener('click', next);
-
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
-    });
-  }
-
-  // ============================================
-  // SMOOTH SCROLL for anchor links
-  // ============================================
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const href = anchor.getAttribute('href');
-        if (href === '#') return; // skip whatsapp-link buttons
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-          const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-  }
-
-  // ============================================
-  // WHATSAPP LINK
-  // ============================================
-  function initWhatsApp() {
-    const phone = '529581075503';
-
-    document.querySelectorAll('.whatsapp-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const msg = resolve('booking.whatsapp_message', currentLocale) || '';
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-      });
-    });
-  }
-
-  // ============================================
-  // CONTACT FORM
-  // ============================================
-  function initContactForm() {
-    const form = document.querySelector('.booking__form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = form.querySelector('[name="name"]')?.value || '';
-      const email = form.querySelector('[name="email"]')?.value || '';
-      const message = form.querySelector('[name="message"]')?.value || '';
-
-      if (!name || !email || !message) return;
-
-      const phone = '529581075503';
-      const text = `Nuevo mensaje desde Casa Bawi web:\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`;
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
-
-      form.reset();
-    });
-  }
-
-  // ============================================
-  // INIT
-  // ============================================
   function init() {
-    initLanguage();
-    initNavbar();
-    initMobileMenu();
-    initScrollAnimations();
-    initGalleryCarousel();
-    initLightbox();
-    initSmoothScroll();
-    initWhatsApp();
-    initContactForm();
+    initHeader(); initMobileMenu(); initAnimations();
+    initGallery(); initLightbox(); initFAQ(); initForms(); initModal();
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

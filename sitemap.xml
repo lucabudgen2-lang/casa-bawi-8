@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://casa-bawi.vercel.app/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casa-bawi.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://casa-bawi.vercel.app/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casa-bawi.vercel.app/"/>
+  </url>
+  <url>
+    <loc>https://casa-bawi.vercel.app/es</loc>
+    <lastmod>2026-06-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casa-bawi.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://casa-bawi.vercel.app/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casa-bawi.vercel.app/"/>
+  </url>
+</urlset>
