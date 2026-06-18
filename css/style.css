@@ -220,6 +220,7 @@ p { max-width: 62ch; }
 .hero__slogan { font-family: var(--font-display); font-weight: 700; font-size: clamp(3.4rem, 8.6vw, 7rem); line-height: 0.88;
   letter-spacing: 0.008em; text-transform: uppercase; color: var(--color-white); max-width: none;
   text-shadow: 0 2px 40px rgba(8,7,6,0.3); }
+html[lang="es"] .hero__slogan { line-height: 1.0; }
 .hero__sub { font-size: clamp(1.02rem, 1.4vw, 1.2rem); font-weight: 300; max-width: 40ch; margin-top: 1.5rem;
   color: rgba(255,255,255,0.9); line-height: 1.6; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
