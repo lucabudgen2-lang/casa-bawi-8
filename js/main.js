@@ -143,6 +143,7 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var fields = form.querySelectorAll('input[name], textarea[name], select[name]');
+        var hasContactField = !!form.querySelector('[name="email"], [name="tel"]');
         var nameV = '', contactOk = false, lines = [];
         fields.forEach(function (f) {
           var val = (f.value || '').trim();
@@ -150,7 +151,10 @@
           if ((f.name === 'email' || f.name === 'tel') && val) contactOk = true;
           if (val) lines.push(labelFor(f, form) + ': ' + val);
         });
-        if (!nameV || !contactOk) {
+        /* The booking form routes to WhatsApp (which already carries the sender's
+           number), so it only needs a name. Forms that still collect email/tel
+           require one of those too. Dates + guests ride along in the lines below. */
+        if (!nameV || (hasContactField && !contactOk)) {
           form.querySelectorAll('[required]').forEach(function (r) { if (!r.value.trim()) r.style.borderColor = '#c0392b'; });
           return;
         }
@@ -185,9 +189,25 @@
     }
   }
 
+  /* ---- Availability signal (config-driven; no live calendar) ---- */
+  function initAvailability() {
+    var els = document.querySelectorAll('[data-availability]');
+    if (!els.length) return;
+    var avail = CFG.availability || {};
+    var season = (avail.season || '').trim();
+    if (!season) return; // null/empty -> leave the line hidden
+    var label = isES ? ('Reservaciones abiertas: ' + season) : ('Now booking ' + season);
+    els.forEach(function (el) {
+      var slot = el.querySelector('[data-availability-text]') || el;
+      slot.textContent = label;
+      el.hidden = false;
+    });
+  }
+
   function init() {
     initHeader(); initMobileMenu(); initAnimations();
     initGallery(); initLightbox(); initFAQ(); initForms(); initModal();
+    initAvailability();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

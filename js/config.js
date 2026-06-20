@@ -17,9 +17,19 @@
    block in index.html / es/index.html can be un-commented.
    ============================================================ */
 window.CASA_CONFIG = {
-  /* --- Production site URL (used for canonical / hreflang / OG / sitemap) ---
-     TODO: replace with the real custom domain once connected in Vercel. */
-  siteUrl: "https://casa-bawi.vercel.app",
+  /* ============================================================
+     SITE_URL - single source of truth for the production domain.
+     ------------------------------------------------------------
+     >>> REPLACE the "REPLACE_WITH_CUSTOM_DOMAIN.com" token with your
+         real custom domain (no trailing slash) once it is connected
+         in Vercel. The site is static HTML (no build step), so the
+         same token also appears in the HTML heads (canonical,
+         hreflang, og:url, og:image, twitter:image, JSON-LD url) and
+         in sitemap.xml / robots.txt. Do ONE project-wide find-replace
+         of "REPLACE_WITH_CUSTOM_DOMAIN.com" to update every reference.
+     ============================================================ */
+  SITE_URL: "https://REPLACE_WITH_CUSTOM_DOMAIN.com",
+  siteUrl: "https://REPLACE_WITH_CUSTOM_DOMAIN.com", // alias, kept for compatibility
 
   /* --- Brand --- */
   propertyName: "Casa Ba'wi Apartemento 8",
@@ -58,6 +68,16 @@ window.CASA_CONFIG = {
   popup: {
     autoOpen: true,      // auto-show once per browser session
     delaySeconds: 6      // delay before the auto-open
+  },
+
+  /* --- Availability signal (shown next to the booking CTA) ---
+     >>> REPLACE the "SEASON" placeholder with the period you are
+         currently taking bookings for, e.g. "Winter 2026" or
+         "the 2026 season". Rendered as "Now booking SEASON" (EN) /
+         "Reservaciones abiertas: SEASON" (ES). Set season to null
+         to hide the line entirely. */
+  availability: {
+    season: "SEASON"
   },
 
   /* --- Deferred fields (leave null until provided) --- */

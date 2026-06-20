@@ -387,6 +387,45 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
 .form input::placeholder, .form textarea::placeholder { color: rgba(255,255,255,0.4); }
 .form textarea { resize: vertical; min-height: 90px; }
 .form .btn { margin-top: 0.5rem; }
+.form__opt { text-transform: none; letter-spacing: 0; color: rgba(255,255,255,0.45); font-size: 0.95em; }
+
+/* Availability signal next to the booking CTA */
+.avail { display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 1.4rem;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-sand); }
+.avail__dot { width: 9px; height: 9px; border-radius: 50%; background: #4ED07A; flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(78,208,122,0.6); animation: availPulse 2.4s var(--ease) infinite; }
+@keyframes availPulse {
+  0% { box-shadow: 0 0 0 0 rgba(78,208,122,0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(78,208,122,0); }
+  100% { box-shadow: 0 0 0 0 rgba(78,208,122,0); } }
+@media (prefers-reduced-motion: reduce) { .avail__dot { animation: none; } }
+
+/* ============================================================
+   WHY-BOOK-DIRECT STRIP
+   ============================================================ */
+.perks { background: var(--color-black); color: var(--color-cream); border-top: 1px solid rgba(255,255,255,0.08); }
+.perks__inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 0.6rem 2.4rem; padding-block: 1.05rem; }
+.perk { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.84rem; letter-spacing: 0.02em;
+  color: var(--color-sand); white-space: nowrap; }
+.perk svg { width: 17px; height: 17px; color: var(--color-salmon); flex-shrink: 0; }
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews__agg { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+.reviews__stars { display: inline-flex; gap: 2px; }
+.reviews__stars svg { width: 20px; height: 20px; color: var(--color-salmon); }
+.reviews__score { font-size: 0.95rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.reviews__score strong { color: var(--ink); font-weight: 700; }
+.reviews__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.6rem); }
+.review { display: flex; flex-direction: column; gap: 0.9rem; padding: clamp(1.5rem, 2.4vw, 2rem);
+  background: var(--color-white); border: 1px solid var(--line); border-radius: 4px; }
+.review__stars { display: inline-flex; gap: 2px; }
+.review__stars svg { width: 16px; height: 16px; color: var(--color-salmon); }
+.review__text { font-size: 0.97rem; line-height: 1.6; color: var(--ink); max-width: none; }
+.review__author { margin-top: auto; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--color-salmon-dark); font-size: 1.05rem; }
 
 /* ============================================================
    STICKY MOBILE CTA + FLOATING WHATSAPP
@@ -550,6 +589,12 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
   .facts__grid { grid-template-columns: repeat(2, 1fr); }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }
   .form__row { grid-template-columns: 1fr; }
+  .reviews__grid { grid-template-columns: 1fr; }
+  .perks__inner { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+  .perk { white-space: normal; }
+  /* Prevent the long WhatsApp CTA from forcing horizontal overflow on mobile */
+  .booking__grid > * { min-width: 0; }
+  .booking__intro .btn { white-space: normal; text-align: center; height: auto; }
   .hero__inner { padding-bottom: 4.5rem; }
   .hero__kicker { font-size: 0.86rem; letter-spacing: 0.14em; margin-bottom: 0.85rem; max-width: 100%; }
   .hero__slogan { font-size: clamp(2.7rem, 12vw, 3.7rem); max-width: 100%; }
