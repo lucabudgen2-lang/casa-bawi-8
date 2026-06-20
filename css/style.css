@@ -193,9 +193,9 @@ p { max-width: 62ch; }
 /* Mobile nav */
 .mobile-nav {
   position: fixed; inset: 0; z-index: 99; background: var(--color-black); color: var(--color-white);
-  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: clamp(1.1rem, 3vh, 1.7rem);
+  display: flex; flex-direction: column; justify-content: safe center; align-items: center; gap: clamp(1.1rem, 3vh, 1.7rem);
   opacity: 0; visibility: hidden; transition: opacity var(--t), visibility var(--t);
-  padding: calc(var(--nav-h) + 1.5rem) var(--gutter) 2.5rem; overflow-y: auto;
+  padding: calc(var(--nav-h) + 1.5rem) var(--gutter) calc(2.5rem + env(safe-area-inset-bottom)); overflow-y: auto;
 }
 .mobile-nav.active { opacity: 1; visibility: visible; }
 .mobile-nav a { font-family: var(--font-display); font-weight: 600; font-size: 1.85rem; letter-spacing: 0.03em; text-transform: uppercase; }
