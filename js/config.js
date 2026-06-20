@@ -20,16 +20,15 @@ window.CASA_CONFIG = {
   /* ============================================================
      SITE_URL - single source of truth for the production domain.
      ------------------------------------------------------------
-     >>> REPLACE the "REPLACE_WITH_CUSTOM_DOMAIN.com" token with your
-         real custom domain (no trailing slash) once it is connected
-         in Vercel. The site is static HTML (no build step), so the
-         same token also appears in the HTML heads (canonical,
-         hreflang, og:url, og:image, twitter:image, JSON-LD url) and
-         in sitemap.xml / robots.txt. Do ONE project-wide find-replace
-         of "REPLACE_WITH_CUSTOM_DOMAIN.com" to update every reference.
+     Currently the live Vercel domain. The site is static HTML (no
+     build step), so this same URL is also hard-coded in the HTML
+     heads (canonical, hreflang, og:url, og:image, twitter:image,
+     JSON-LD url) and in sitemap.xml / robots.txt. If you later move
+     to a custom domain, do ONE project-wide find-replace of
+     "https://casa-bawi-8.vercel.app" to update every reference.
      ============================================================ */
-  SITE_URL: "https://REPLACE_WITH_CUSTOM_DOMAIN.com",
-  siteUrl: "https://REPLACE_WITH_CUSTOM_DOMAIN.com", // alias, kept for compatibility
+  SITE_URL: "https://casa-bawi-8.vercel.app",
+  siteUrl: "https://casa-bawi-8.vercel.app", // alias, kept for compatibility
 
   /* --- Brand --- */
   propertyName: "Casa Ba'wi Apartemento 8",

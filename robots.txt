@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://REPLACE_WITH_CUSTOM_DOMAIN.com/sitemap.xml
+Sitemap: https://casa-bawi-8.vercel.app/sitemap.xml

@@ -430,6 +430,11 @@ html[lang="es"] .hero__slogan { line-height: 1.0; }
 .review__author { margin-top: auto; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--color-salmon-dark); font-size: 1.05rem; }
 
+/* SEO area prose block */
+.prose { max-width: var(--maxw-narrow); margin-inline: auto; }
+.prose p { color: var(--ink-soft); max-width: none; }
+.prose p + p { margin-top: 1.1rem; }
+
 /* ============================================================
    STICKY MOBILE CTA + FLOATING WHATSAPP
    ============================================================ */
